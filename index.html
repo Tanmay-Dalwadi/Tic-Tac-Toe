@@ -1,32 +1,40 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Tic Tac Toe</title>
-<link href="style.css" rel="stylesheet"/>
-<script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tic Tac Toe</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gradient-to-br from-purple-600 to-indigo-800 font-sans text-gray-100 min-h-screen flex items-center justify-center p-4">
 
-<div class="w-full max-w-3xl flex flex-col items-center justify-center text-center"><div class="container">
-<h1 class="title">Tic Tac Toe</h1>
-<div class="board" id="board"></div>
-<div class="message" id="message"></div>
-<button class="reset-btn" id="resetBtn">Reset Game</button>
-<div class="modal hidden" id="gameModal">
-<div class="modal-content" id="modalContent">
-<h2 class="modal-message" id="modalMessage"></h2>
-<button class="modal-btn" id="closeModalBtn">Play Again!</button>
-</div>
-</div>
-<footer class="footer">
+  <div class="w-full max-w-md flex flex-col items-center justify-center text-center">
+    <h1 class="title">Tic Tac Toe</h1>
+    
+    <div class="board" id="board"></div>
+    
+    <div class="message" id="message"></div>
+    
+    <button class="reset-btn" id="resetBtn">Reset Game</button>
+
+    <!-- Modal -->
+    <div class="modal hidden" id="gameModal">
+      <div class="modal-content" id="modalContent">
+        <h2 class="modal-message" id="modalMessage"></h2>
+        <button class="modal-btn" id="closeModalBtn">Play Again!</button>
+      </div>
+    </div>
+
+    <footer class="footer">
       © 2025 Tanmay Dalwadi
     </footer>
-<!-- Audio files -->
-<audio id="clickSound" src="assets/click.mp3"></audio>
-<audio id="winSound" src="assets/win.mp3"></audio>
-<script src="script.js"></script>
-</div></div></body>
+
+    <!-- Sounds -->
+    <audio id="clickSound" src="assets/click.mp3"></audio>
+    <audio id="winSound" src="assets/win.mp3"></audio>
+  </div>
+
+  <script src="script.js"></script>
+</body>
 </html>
