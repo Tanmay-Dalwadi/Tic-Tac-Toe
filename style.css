@@ -22,6 +22,7 @@ body {
 }
 .board {
   display: grid;
+    align-items: center;
   grid-template-columns: repeat(3, 100px);
   gap: 10px;
 }
