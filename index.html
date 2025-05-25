@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Attendance System Concept</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col items-center justify-between">
+    <header class="w-full bg-indigo-700 text-white py-4 shadow-md transition-transform duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-lg">
+        <div class="container mx-auto px-4 text-center md:text-left">
+            <h1 class="text-2xl font-semibold">Your School Name</h1>
+        </div>
+    </header>
+
+    <div class="container w-full lg:w-3/4 xl:w-2/3 my-8 opacity-0 transform scale-95 transition-all duration-500 ease-out delay-100">
+        <h1 class="text-5xl font-extrabold text-center text-gray-900 mb-10">
+            <span class="block text-indigo-600">Student Attendance</span>
+            <span class="block text-gray-700 text-3xl mt-2">Management System</span>
+        </h1>
+
+        <div class="mb-10 p-6 bg-blue-50 border border-blue-200 rounded-2xl shadow-md">
+            <p class="text-xl font-bold text-blue-800 mb-4">Quick Guide:</p>
+            <p class="text-gray-700 leading-relaxed text-lg">
+                Start by selecting a class and the attendance date. Then, for each student listed, simply click on the appropriate attendance status:
+                <span class="font-bold text-green-600">Present</span>, <span class="font-bold text-red-600">Absent</span>,
+                <span class="font-bold text-yellow-600">Late</span>, or <span class="font-bold text-blue-600">Excused</span>.
+                Your selection will be clearly highlighted. Once all students are marked, hit the "Submit Attendance" button below.
+            </p>
+        </div>
+
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-8">
+            <div class="flex-grow">
+                <label for="classSelect" class="block text-gray-700 text-lg font-bold mb-3">Select Class:</label>
+                <select id="classSelect" class="block w-full py-3 px-5 text-gray-800 bg-white border border-gray-300 rounded-xl shadow-sm
+                                             focus:outline-none focus:ring-3 focus:ring-indigo-400 focus:border-indigo-500
+                                             transition duration-300 ease-in-out appearance-none cursor-pointer text-lg">
+                    <option value="">-- Choose a Class --</option>
+                    <option value="10A">Class 10A</option>
+                    <option value="10B">Class 10B</option>
+                    <option value="11C">Class 11C</option>
+                    <option value="12D">Class 12D</option>
+                </select>
+            </div>
+            <div class="flex-grow">
+                <label for="attendanceDate" class="block text-gray-700 text-lg font-bold mb-3">Attendance Date:</label>
+                <input type="date" id="attendanceDate" class="block w-full py-3 px-5 text-gray-800 bg-white border border-gray-300 rounded-xl shadow-sm
+                                             focus:outline-none focus:ring-3 focus:ring-indigo-400 focus:border-indigo-500
+                                             transition duration-300 ease-in-out cursor-pointer text-lg">
+            </div>
+        </div>
+
+        <div id="studentList" class="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200">
+            <div class="p-8 text-center text-gray-500 text-xl font-medium">Please select a class to view students.</div>
+        </div>
+
+        <div class="mt-12 text-center">
+            <button id="submitAttendance" class="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900
+                                             text-white font-extrabold py-5 px-10 rounded-2xl shadow-xl
+                                             focus:outline-none focus:ring-4 focus:ring-indigo-300 focus:ring-opacity-75
+                                             transition duration-300 ease-in-out transform hover:scale-105 active:scale-95">
+                Submit Attendance
+            </button>
+        </div>
+
+        <div id="messageBox" class="hidden fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center z-50 p-4">
+            <div class="bg-white p-10 rounded-2xl shadow-2xl max-w-md w-full text-center border border-gray-200">
+                <p id="messageText" class="text-2xl font-bold text-gray-800 mb-8"></p>
+                <button id="messageBoxClose" class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3.5 px-7 rounded-lg
+                                                  focus:outline-none focus:ring-2 focus:ring-indigo-300 focus:ring-opacity-75
+                                                  transition duration-200 ease-in-out transform hover:scale-105">
+                    OK
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="w-full bg-gray-200 text-gray-600 py-3 text-center mt-8">
+        &copy; 2025 Your Name. All rights reserved.
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
