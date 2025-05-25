@@ -1,163 +1,114 @@
-/* Base styles for Inter font and background */
 body {
-    font-family: 'Inter', sans-serif;
-    background-color: #f8fafc; /* Very light blue-gray background */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: sans-serif;
+  background: linear-gradient(to bottom right, #7e22ce, #1e3a8a);
+  color: #f3f4f6;
+  margin: 0;
+  padding: 1rem;
 }
-/* Main container styling */
-.container {
-    max-width: 95%; /* Slightly wider for better use of space */
-    margin: 2rem auto;
-    padding: 2.5rem; /* More padding */
-    background-color: #ffffff;
-    border-radius: 20px; /* Even more rounded corners */
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12); /* Stronger, softer shadow */
-    transition: all 0.4s ease-in-out;
-    border: 1px solid #e2e8f0; /* Subtle border */
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
 }
-/* Student row styling */
-.student-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.1rem 1.5rem; /* More padding */
-    border-bottom: 1px solid #f0f4f8; /* Very light border */
-    background-color: #ffffff;
-    transition: background-color 0.25s ease-in-out, transform 0.25s ease-in-out;
-    position: relative; /* For potential future animations */
-    overflow: hidden; /* Ensures shadow doesn't bleed */
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  gap: 10px;
 }
-.student-row:last-child {
-    border-bottom: none;
+.cell {
+  width: 100px;
+  height: 100px;
+  background-color: #1f2937;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s;
 }
-.student-row:hover {
-    background-color: #f0f4f8; /* More noticeable hover effect */
-    transform: translateX(5px); /* Slight slide effect on hover */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow on hover */
+.cell:hover {
+  background-color: #374151;
 }
-/* Status button base styling */
-.status-button {
-    padding: 0.7rem 1.4rem; /* Larger padding */
-    border-radius: 12px; /* More rounded buttons */
-    font-weight: 700; /* Bolder text */
-    cursor: pointer;
-    transition: all 0.3s ease-in-out, transform 0.1s ease-in-out, box-shadow 0.2s ease-in-out; /* Added box-shadow transition */
-    min-width: 100px; /* Ensure consistent button width */
-    text-align: center;
-    border: 2px solid transparent; /* Default transparent border */
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.08); /* More pronounced button shadow */
-    letter-spacing: 0.025em; /* Slight letter spacing */
+.player-X {
+  color: #ef4444;
 }
-.status-button:hover {
-    transform: translateY(-3px) scale(1.02); /* Lift and slight scale effect on hover */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+.player-O {
+  color: #10b981;
 }
-.status-button:active {
-    transform: translateY(0) scale(0.98); /* Press effect */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+.winning-cell {
+  animation: pulseHighlight 1s infinite alternate;
 }
-/* Specific status button colors */
-.status-present {
-    background-color: #22c55e; /* Tailwind green-500 */
-    color: white;
+@keyframes pulseHighlight {
+  0% { box-shadow: 0 0 0px 0px rgba(255, 255, 0, 0.7); }
+  50% { box-shadow: 0 0 20px 5px rgba(255, 255, 0, 0.7); }
+  100% { box-shadow: 0 0 0px 0px rgba(255, 255, 0, 0.7); }
 }
-.status-absent {
-    background-color: #ef4444; /* Tailwind red-500 */
-    color: white;
+.message {
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
 }
-.status-late {
-    background-color: #facc15; /* Tailwind yellow-400 */
-    color: #333;
+.reset-btn {
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  background: linear-gradient(to right, #34d399, #3b82f6);
+  color: white;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: transform 0.2s;
 }
-.status-excused {
-    background-color: #3b82f6; /* Tailwind blue-500 */
-    color: white;
+.reset-btn:hover {
+  transform: scale(1.05);
 }
-/* Selected status styling */
-.status-selected {
-    border-color: #1f2937; /* Darker border for selected status (gray-800) */
-    box-shadow: 0 0 0 5px rgba(55, 65, 81, 0.3); /* More prominent shadow for selected */
-    transform: scale(1.05); /* More noticeable scale when selected */
+.modal {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
 }
-
-/* Submit button specific styles */
-#submitAttendance {
-    background-image: linear-gradient(to right, #4f46e5, #3b82f6); /* Indigo to Blue gradient */
-    box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3); /* Shadow matching gradient */
-    transition: all 0.3s ease-in-out, transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Added transitions */
+.modal-content {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  text-align: center;
+  transform: scale(0.9);
+  opacity: 0;
+  animation: slideIn 0.3s forwards;
 }
-#submitAttendance:hover {
-    background-image: linear-gradient(to right, #4338ca, #2563eb); /* Darker gradient on hover */
-    box-shadow: 0 12px 25px rgba(79, 70, 229, 0.4);
-    transform: translateY(-4px) scale(1.02);
-}
-#submitAttendance:active {
-    transform: translateY(0) scale(0.98);
-    box-shadow: 0 5px 10px rgba(79, 70, 229, 0.2);
-}
-
-/* Message box animation */
-#messageBox {
-    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
-    opacity: 0;
-    transform: scale(0.9);
-}
-#messageBox.show {
-    opacity: 1;
+@keyframes slideIn {
+  to {
     transform: scale(1);
+    opacity: 1;
+  }
 }
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .container {
-        margin: 1rem auto;
-        padding: 1.5rem;
-        border-radius: 15px;
-    }
-    .student-row {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 0.9rem 1.2rem;
-    }
-    .student-name {
-        margin-bottom: 0.7rem;
-        font-size: 1.1rem;
-        font-weight: 700;
-    }
-    .status-buttons-group {
-        width: 100%;
-        display: flex;
-        justify-content: space-around;
-        gap: 0.5rem;
-    }
-    .status-button {
-        flex-grow: 1;
-        padding: 0.6rem 0.9rem;
-        font-size: 0.85rem;
-        min-width: unset;
-        border-radius: 10px;
-    }
-    #submitAttendance {
-        padding: 1rem 2rem;
-        font-size: 1.1rem;
-    }
+.modal-message {
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #1f2937;
 }
-@media (max-width: 480px) {
-    .container {
-        padding: 1rem;
-    }
-    .student-row {
-        padding: 0.7rem 0.8rem;
-    }
-    .student-name {
-        font-size: 1rem;
-    }
-    .status-button {
-        padding: 0.5rem 0.7rem;
-        font-size: 0.75rem;
-        border-radius: 8px;
-    }
-    #submitAttendance {
-        padding: 0.8rem 1.5rem;
-        font-size: 1rem;
-    }
+.modal-btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+}
+.footer {
+  margin-top: 2rem;
+  font-size: 0.875rem;
+  color: #d1d5db;
 }
