@@ -1,8 +1,19 @@
 body {
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers horizontally */
+    justify-content: center; /* Centers vertically */
     min-height: 100vh;
+    /* ... other body styles ... */
+}
+
+.container {
+    /* ... other container styles ... */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers horizontally content within the container */
+    justify-content: center; /* Centers vertically content within the container */
+    text-align: center; /* Centers inline content like the title and button */
 }
 .title {
   font-size: 2.5rem;
