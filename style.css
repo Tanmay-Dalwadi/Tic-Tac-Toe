@@ -4,117 +4,130 @@ body {
     align-items: center; /* Centers horizontally */
     justify-content: center; /* Centers vertically */
     min-height: 100vh;
-    /* ... other body styles ... */
+    font-family: sans-serif;
+    background: linear-gradient(to bottom right, #7e22ce, #1e3a8a);
+    color: #f3f4f6;
+    margin: 0;
+    padding: 1rem;
 }
 
-.container {
-    /* ... other container styles ... */
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centers horizontally content within the container */
-    justify-content: center; /* Centers vertically content within the container */
-    text-align: center; /* Centers inline content like the title and button */
-}
 .title {
-  font-size: 2.5rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
 }
+
 .board {
-  display: grid;
-    align-items: center;
-  grid-template-columns: repeat(3, 100px);
-  gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    gap: 10px;
+    /* Add this line to center the board horizontally */
+    margin: 0 auto;
 }
+
 .cell {
-  width: 100px;
-  height: 100px;
-  background-color: #1f2937;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 2rem;
-  cursor: pointer;
-  border-radius: 8px;
-  transition: background-color 0.3s;
+    width: 100px;
+    height: 100px;
+    background-color: #1f2937;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s;
 }
+
 .cell:hover {
-  background-color: #374151;
+    background-color: #374151;
 }
+
 .player-X {
-  color: #ef4444;
+    color: #ef4444;
 }
+
 .player-O {
-  color: #10b981;
+    color: #10b981;
 }
+
 .winning-cell {
-  animation: pulseHighlight 1s infinite alternate;
+    animation: pulseHighlight 1s infinite alternate;
 }
+
 @keyframes pulseHighlight {
-  0% { box-shadow: 0 0 0px 0px rgba(255, 255, 0, 0.7); }
-  50% { box-shadow: 0 0 20px 5px rgba(255, 255, 0, 0.7); }
-  100% { box-shadow: 0 0 0px 0px rgba(255, 255, 0, 0.7); }
+    0% { box-shadow: 0 0 0px 0px rgba(255, 255, 0, 0.7); }
+    50% { box-shadow: 0 0 20px 5px rgba(255, 255, 0, 0.7); }
+    100% { box-shadow: 0 0 0px 0px rgba(255, 255, 0, 0.7); }
 }
+
 .message {
-  margin-top: 1rem;
-  font-size: 1.5rem;
-  font-weight: bold;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
 }
+
 .reset-btn {
-  margin-top: 1rem;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  background: linear-gradient(to right, #34d399, #3b82f6);
-  color: white;
-  border: none;
-  border-radius: 9999px;
-  cursor: pointer;
-  transition: transform 0.2s;
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    background: linear-gradient(to right, #34d399, #3b82f6);
+    color: white;
+    border: none;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition: transform 0.2s;
 }
+
 .reset-btn:hover {
-  transform: scale(1.05);
+    transform: scale(1.05);
 }
+
 .modal {
-  position: fixed;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.7);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 50;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 50;
 }
+
 .modal-content {
-  background-color: white;
-  padding: 2rem;
-  border-radius: 1rem;
-  text-align: center;
-  transform: scale(0.9);
-  opacity: 0;
-  animation: slideIn 0.3s forwards;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    text-align: center;
+    transform: scale(0.9);
+    opacity: 0;
+    animation: slideIn 0.3s forwards;
 }
+
 @keyframes slideIn {
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
+
 .modal-message {
-  font-size: 1.75rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  color: #1f2937;
+    font-size: 1.75rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #1f2937;
 }
+
 .modal-btn {
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  background-color: #2563eb;
-  color: white;
-  border: none;
-  border-radius: 9999px;
-  cursor: pointer;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 9999px;
+    cursor: pointer;
 }
+
 .footer {
-  margin-top: 2rem;
-  font-size: 0.875rem;
-  color: #d1d5db;
+    margin-top: 2rem;
+    font-size: 0.875rem;
+    color: #d1d5db;
 }
